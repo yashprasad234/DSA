@@ -51,7 +51,7 @@ public class LinkedList {
         tail = newNode;
     }
 
-    public void printLL() {
+    public static void printLL() {
 //        if(head == null) {
 //            System.out.println("Linked List is empty");
 //            return;
@@ -227,30 +227,130 @@ public class LinkedList {
         return true;
     }
 
+    public static boolean hasLoop() { //Floyd's cycle finding algorithm
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast)
+                return true;
+        }
+        return false;
+    }
+
+    public static void removeCycle() {
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if(fast == slow)
+                break;
+        }
+        if(fast != slow) {
+            return;
+        }
+        slow = head;
+        Node prev = fast;
+        while (fast != slow) {
+            prev = fast;
+            slow = slow.next;
+            fast = fast.next;
+        }
+        prev.next = null;
+    }
+
+    public Node mergeSort(Node head) {
+        if(head == null || head.next == null) {
+            return head;
+        }
+        //Find midNode of LL
+        Node slow = head;
+        Node fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        //Divide LL in two halves
+        Node rightHead = slow.next;
+        slow.next = null;
+        return merge(mergeSort(head), mergeSort(rightHead));
+    }
+
+    public Node merge(Node left, Node right) {
+        Node mergedLL = new Node(-1);
+        Node temp = mergedLL;
+        while (left != null && right != null) {
+            if (left.data < right.data) {
+                temp.next = left;
+                left = left.next;
+            } else {
+                temp.next = right;
+                right = right.next;
+            }
+            temp = temp.next;
+        }
+        while (left != null) {
+            temp.next = left;
+            left = left.next;
+            temp = temp.next;
+        }
+        while (right != null) {
+            temp.next = right;
+            right = right.next;
+            temp = temp.next;
+        }
+        return mergedLL.next;
+    }
+
+    public void zigZagLL() {
+        //find midNode
+        Node slow = head;
+        Node fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        Node midNode = slow;
+
+        //reverse second half
+        Node prev = null;
+        Node curr = midNode;
+        Node next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        Node left = head;
+        Node right = prev;
+
+        //alternate merging
+        Node nextL;
+        Node nextR;
+        while (left != null && right != null) {
+            nextL = left.next;
+            left.next = right;
+            nextR = right.next;
+            right.next = nextL;
+            right = nextR;
+            left = nextL;
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
-//        ll.addFirst(2);
-//        ll.addFirst(1);
-//        ll.addLast(4);
-//        ll.addLast(5);
-//        ll.add(2,3 );
-
-//        ll.printLL();
-//        ll.removeFirst();
-//        ll.printLL();
-//        ll.removeLast();
-//        ll.printLL();
-//        System.out.println(ll.size);
-//        System.out.println(ll.searchIterative(3));
-//        System.out.println(ll.searchRecursive(4));
-//        ll.reverse();
-//        ll.removeNthFromEnd(3);
-//        ll.printLL();
         ll.addLast(1);
         ll.addLast(2);
-        ll.addLast(2);
-        ll.addLast(1);
-        ll.printLL();
-        System.out.println(ll.llIsPalindrome());
+        ll.addLast(3);
+        ll.addLast(4);
+        ll.addLast(5);
+        printLL();
+        ll.zigZagLL();
+        printLL();
     }
 }
