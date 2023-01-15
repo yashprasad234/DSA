@@ -70,6 +70,10 @@ public class LinkedList {
             addFirst(data);
             return;
         }
+        else if(index == size) {
+            addLast(data);
+            return;
+        }
         Node newNode = new Node(data);
         size++;
         Node temp = head;
@@ -133,6 +137,10 @@ public class LinkedList {
         return -1;
     }
 
+    public int searchRecursive(int key) {
+        return helper(head, key);
+    }
+
     public int helper(Node head, int key) {
         if(head == null)
             return -1;
@@ -142,10 +150,6 @@ public class LinkedList {
         if(index == -1)
             return -1;
         return 1 + index;
-    }
-
-    public int searchRecursive(int key) {
-        return helper(head, key);
     }
 
     public void reverse() { //O(n)
@@ -170,7 +174,7 @@ public class LinkedList {
             listSize++;
         }
         if(n == listSize) {
-            head = head.next;
+            removeFirst();
             return;
         } else if(n == 1) {
             removeLast();
@@ -344,11 +348,10 @@ public class LinkedList {
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
-        ll.addLast(1);
-        ll.addLast(2);
-        ll.addLast(3);
-        ll.addLast(4);
-        ll.addLast(5);
+        ll.add(0,1);
+        ll.add(1,2);
+        ll.add(2,4);
+        ll.add(3,8);
         printLL();
         ll.zigZagLL();
         printLL();

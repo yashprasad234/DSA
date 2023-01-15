@@ -41,7 +41,7 @@ public class DoublyLL {
         tail = newNode;
     }
 
-    public void printDLL() {
+    public void printdll() {
         Node temp = head;
         System.out.print("null<-");
         while (temp != null) {
@@ -78,6 +78,21 @@ public class DoublyLL {
         return val;
     }
 
+    public void reverseDll() {
+        Node curr = tail = head;
+        Node prev = null;
+        Node next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            curr.prev = next;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+        return;
+    }
+
     public int removeFirst() {
         if(size == 0) {
             System.out.println("DLL is empty");
@@ -102,8 +117,8 @@ public class DoublyLL {
         dll.addLast(2);
         dll.addLast(3);
         dll.addLast(4);
-        dll.printDLL();
-        dll.removeFirst();
-        dll.printDLL();
+        dll.printdll();
+        dll.reverseDll();
+        dll.printdll();
     }
 }
