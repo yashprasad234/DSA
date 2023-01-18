@@ -14,6 +14,8 @@ public class ValidParentheeses {
                 s.push(ch);
             }
             else {
+                if(s.isEmpty())
+                    return false;
                 char pair = ' ';
                 switch (ch) {
                     case ')' : pair = '(';
