@@ -3,14 +3,14 @@ import java.util.Arrays;
 public class Solution {
     public static void main(String[] args) {
         String str = "aaabbcccdd";
-        System.out.println("The compressed string is : " + stringCompression(str));
+        System.out.println(stringCompress(str));
     }
 
-    static String stringCompression(String str) {
+    static String stringCompress (String str)  {
         StringBuilder sb = new StringBuilder("");
         for (int i = 0; i < str.length(); i++) {
             Integer count = 1;
-            while (i < str.length()-1 && str.charAt(i) == str.charAt(i+1)) {
+            while(i < str.length()-1 && str.charAt(i+1) == str.charAt(i)) {
                 count++;
                 i++;
             }

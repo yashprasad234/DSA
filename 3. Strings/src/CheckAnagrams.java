@@ -11,6 +11,9 @@ public class CheckAnagrams {
             System.out.println("The strings mentioned above are not anagrams");
     }
 
+    //An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically
+    //using all the original letters exactly once
+
     static boolean isAnagram(String str1, String str2) {
         if(str1.length() != str2.length())
             return false;

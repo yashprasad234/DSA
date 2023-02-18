@@ -1,15 +1,14 @@
 public class Solution {
     public static void main(String[] args) {
-        tOH(3, 'A', 'B', 'C');
+        int[] arr = {8,3,6,9,5,10,2,5,3};
+        System.out.println(firstOcc(arr,5,0));
     }
 
-    static void tOH(int n, char a, char b, char c){
-        if(n == 1) {
-            System.out.println("Move " + 1 + " from " + a + " to " + c);
-            return;
-        }
-        tOH(n-1, a, c, b);
-        System.out.println("Move " + n +" from " + a + " to " + c);
-        tOH(n-1, b, a, c);
+    static int firstOcc(int[] arr, int target, int i) {
+        if(i == arr.length)
+            return -1;
+        if(arr[i] == target)
+            return i;
+        return firstOcc(arr, target, i+1);
     }
 }
