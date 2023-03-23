@@ -1,14 +1,17 @@
+import java.util.*;
+
 public class Solution {
     public static void main(String[] args) {
-        int[] arr = {8,3,6,9,5,10,2,5,3};
-        System.out.println(firstOcc(arr,5,0));
+        toh('A', 'B', 'C', 3);
     }
 
-    static int firstOcc(int[] arr, int target, int i) {
-        if(i == arr.length)
-            return -1;
-        if(arr[i] == target)
-            return i;
-        return firstOcc(arr, target, i+1);
+    static void toh(char a, char b, char c, int n) {
+        if (n == 1) {
+            System.out.println("1 from " + a + " to " + c);
+            return;
+        }
+        toh(a, c, b, n-1);
+        System.out.println(n + " from " + a + " to " + c);
+        toh(b, a, c, n-1);
     }
 }

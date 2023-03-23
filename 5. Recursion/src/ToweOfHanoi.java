@@ -1,6 +1,6 @@
 public class ToweOfHanoi {
     public static void main(String[] args) {
-        toh('A', 'B', 'C', 4);
+        toh('A', 'B', 'C', 3);
     }
 
     static void toh(char a, char b, char c, int n) {

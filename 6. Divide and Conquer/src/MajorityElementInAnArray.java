@@ -4,7 +4,7 @@ public class MajorityElementInAnArray {
         System.out.println(majorityElement(arr, 0, arr.length-1));
     }
 
-    //Brute force O(n2) time
+//    Brute force O(n2) time
 //    static int majorityElment(int[] arr) {
 //        for (int i = 0; i < arr.length; i++) {
 //            int count = 0;
@@ -18,7 +18,8 @@ public class MajorityElementInAnArray {
 //        return -1;
 //    }
 
-//Improved solution O(nlogn) the sorting function takes O(nlogn) time and the traversal takes O(n) overall time is O(nlogn)
+//    Improved solution O(nlogn) the sorting function takes O(nlogn) time and the traversal takes O(n) overall time is O(nlogn)
+
 //    static int majorityElment(int[] arr) {
 //        Arrays.sort(arr);
 //        int count = 1;
@@ -34,7 +35,8 @@ public class MajorityElementInAnArray {
 //        return -1;
 //    }
 
-//Improved further Moore's algorithm
+//    Improved further - Moore's algorithm
+
 //    static int checkMajority(int[] arr) {
 //        int maj = findMajorityElement(arr);
 //        int count = 0;
@@ -64,7 +66,7 @@ public class MajorityElementInAnArray {
 //    }
 
 
-    //recursive solution
+//    recursive solution
 
     static int countInRange(int[] arr, int num, int st, int end) {
         int count = 0;

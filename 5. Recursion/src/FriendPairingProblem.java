@@ -1,3 +1,6 @@
+//Review question
+//https://www.geeksforgeeks.org/friends-pairing-problem/
+
 public class FriendPairingProblem {
     public static void main(String[] args) {
         System.out.println(friendPairingProblem(3));

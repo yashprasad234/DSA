@@ -14,7 +14,9 @@ public class TilingProblem {
             return 1;
 
         //for every tile that is placed vertically we have f(n-1) more ways to place tiles and for horizontally placed
-        //tile we have f(n-2) more ways and adding these two we will have total number of ways we can place those tiles.
+        //tile we have f(n-2) more ways (because the area taken will be 2 units as below it also there is only one way
+        //of placing the tile i.e horizontally whereas after placing a tile vertically the next tile can be placed in
+        //either way) and adding these two we will have total number of ways we can place those tiles.
         return numberOfWays(n-1) + numberOfWays(n-2);
     }
 }
