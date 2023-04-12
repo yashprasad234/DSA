@@ -2,8 +2,8 @@ import java.util.Stack;
 
 public class MaxAreaHistogram {
     public static void main(String[] args) {
-        int[] height = {2,4};
-        System.out.println("Max area in th above histogram is : " + maxArea(height));
+        int[] height = {2,1,5,6,2,3};
+        System.out.println("Max area in the above histogram is : " + maxArea(height));
     }
 
     static int maxArea(int[] arr) {

@@ -46,6 +46,9 @@ public class NQueensAllWays {
             if(isSafe(chessBoard, row, j)){
                 chessBoard[row][j] = 'Q';
                 nQueen(chessBoard, row + 1);
+
+                //In this step the chess board is reverted to an empty board to look for other possible solutions
+                //after a solution has been found out
                 chessBoard[row][j] = 'x';
             }
         }

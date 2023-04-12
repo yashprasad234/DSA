@@ -1,3 +1,6 @@
+import java.util.*;
+import java.util.LinkedList;
+
 public class LL {
     public static class Node {
         int data;
@@ -14,12 +17,12 @@ public class LL {
 
     public void addLast(int data) {
         //Step 1: create a node
-        LL.Node newNode = new LL.Node(data);
+        Node newNode = new Node(data);
         size++;
         //corner case
         //by convention a linked list is considered empty if its head points to null, so we don't take tail == null
-        if(head == null) {
-            tail =  head = newNode;
+        if (head == null) {
+            head = tail = newNode;
             return;
         }
 
@@ -30,13 +33,66 @@ public class LL {
         tail = newNode;
     }
 
-    public static void printLL() {
+    public void addFirst(int data) {
+        //Step 1: create a node
+        Node newNode = new Node(data);
+        size++;
+        //corner case
+        //by convention a linked list is considered empty if its head points to null, so we don't take tail == null
+        if(head == null) {
+            head = tail = newNode;
+            return;
+        }
+
+        //Step 2: newNode.next = head;
+        newNode.next = head;
+        //Step 3: head = newNode;
+        head = newNode;
+    }
+
+    public int removeFirst() {
+        if (size == 0) {
+            System.out.println("LinkedList is empty :D");
+            return Integer.MIN_VALUE;
+        } else if (size == 1) {
+            int val = head.data;
+            head = tail = null;
+            size = 0;
+            return val;
+        }
+        int val = head.data;
+        head = head.next;
+        size--;
+        return val;
+    }
+
+    public int removeLast() {
+        if (size == 0) {
+            System.out.println("LinkedList is empty :D");
+            return Integer.MIN_VALUE;
+        } else if (size == 1) {
+            int val = head.data;
+            head = tail = null;
+            size = 0;
+            return val;
+        }
+        Node prev = head;
+        while (prev.next.next != null) {
+            prev = prev.next;
+        }
+        int val = prev.next.data;
+        prev.next = null;
+        tail = prev;
+        return val;
+    }
+
+    public void printLL() {
 //        if(head == null) {
 //            System.out.println("Linked List is empty");
 //            return;
 //        }
         //Use temp variable whenever traversing through a LL because we don't want to change its head or tail
-        LL.Node temp = head;
+        Node temp = head;
         while (temp != null) {
             System.out.print(temp.data + "->");
             temp = temp.next;
@@ -44,7 +100,7 @@ public class LL {
         System.out.println("null");
     }
 
-    public static void printList(Node node) {
+    public void printList(Node node) {
         while (node.next != null) {
             System.out.print(node.data+"->");
             node = node.next;
@@ -269,25 +325,14 @@ public class LL {
     }
 
     public static void main(String[] args) {
-        int k = 3, n = 4;
-        Node[] arr = new Node[k];
-
-        arr[0] = new Node(1);
-        arr[0].next = new Node(3);
-        arr[0].next.next = new Node(5);
-        arr[0].next.next.next = new Node(7);
-
-        arr[1] = new Node(2);
-        arr[1].next = new Node(4);
-        arr[1].next.next = new Node(6);
-        arr[1].next.next.next = new Node(8);
-
-        arr[2] = new Node(0);
-        arr[2].next = new Node(9);
-        arr[2].next.next = new Node(10);
-        arr[2].next.next.next = new Node(11);
-
-        Node head = mergeKLists(arr, k-1);
-        printList(head);
+        LL ll = new LL();
+        ll.addLast(1);
+        ll.addLast(2);
+        ll.addLast(3);
+        ll.addLast(4);
+        ll.addLast(5);
+        ll.printLL();
+        ll.zigZag();
+        ll.printLL();
     }
 }

@@ -6,7 +6,7 @@ public class DoublyLL {
 
         public Node (int data) {
             this.data = data;
-            this.next = null;
+            this.prev = null;
             this.next = null;
         }
     }
@@ -30,8 +30,7 @@ public class DoublyLL {
 
     public void addLast(int data) {
         Node newNode = new Node(data);
-        size++;
-        if (head == null) {
+        if(head == null) {
             head = tail = newNode;
             return;
         }
@@ -42,15 +41,27 @@ public class DoublyLL {
     }
 
     public void printdll() {
+//        Node temp = head;
+//        System.out.print("null<-");
+//        while (temp != null) {
+//            if (temp.next == null) {
+//                System.out.print(temp.data + "->");
+//                temp = temp.next;
+//            }
+//            else {
+//                System.out.print(temp.data + "<->");
+//                temp = temp.next;
+//            }
+//        }
+//        System.out.println("null");
         Node temp = head;
-        System.out.print("null<-");
+        System.out.println("null<-");
         while (temp != null) {
             if (temp.next == null) {
-                System.out.print(temp.data + "->");
+                System.out.println(temp.data + "->");
                 temp = temp.next;
-            }
-            else {
-                System.out.print(temp.data + "<->");
+            } else {
+                System.out.println(temp.data + "<->");
                 temp = temp.next;
             }
         }
@@ -59,11 +70,11 @@ public class DoublyLL {
 
     public int removeLast() {
         if(size == 0) {
-            System.out.println("DLL is empty");
-            return Integer.MAX_VALUE;
-        } else if(size == 1) {
+            System.out.println("DLL is empty :D");
+            return Integer.MIN_VALUE;
+        } else if (size == 1) {
             int val = head.data;
-            head = tail = null;
+            head = null;
             size = 0;
             return val;
         }
@@ -71,10 +82,9 @@ public class DoublyLL {
         for (int i = 0; i < size-2; i++) {
             prev = prev.next;
         }
-        int val = tail.data;
+        int val = prev.next.data;
         prev.next = null;
         tail = prev;
-        size--;
         return val;
     }
 
@@ -89,7 +99,7 @@ public class DoublyLL {
             prev = curr;
             curr = next;
         }
-        head = prev;
+        head = curr;
         return;
     }
 
