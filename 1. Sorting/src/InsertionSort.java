@@ -8,26 +8,31 @@ public class InsertionSort {
     }
 
     static void insertionSortAscending(int[] arr) {
-        for (int i = 1; i < arr.length; i++) {
-            int curr = arr[i];
-            int prev = i-1;
-            while(prev >= 0 && arr[prev] > curr) {
-                arr[prev+1] = arr[prev];
-                prev--;
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = i+1; j > 0; j--) { // j > 0 because we compare with arr[j] with arr[j-1]
+                if(arr[j] < arr[j-1])
+                    swap(arr, j, j-1);
+                else
+                    break;
             }
-            arr[prev+1] = curr;
         }
     }
 
     static void insertionSortDescending(int[] arr) {
-        for (int i = 1; i < arr.length; i++) {
-            int curr = arr[i];
-            int prev = i-1;
-            while(prev >= 0 && arr[prev] < curr) {
-                arr[prev+1] = arr[prev];
-                prev--;
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = i+1; j > 0; j--) { // j > 0 because we compare with arr[j] with arr[j-1]
+                if(arr[j] > arr[j-1])
+                    swap(arr, j, j-1);
+                else
+                    break;
             }
-            arr[prev+1] = curr;
         }
+    }
+
+    static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        return;
     }
 }

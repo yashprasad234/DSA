@@ -11,25 +11,27 @@ public class SelectionSort {
 
     static void selectionSortAscending(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
-            for (int j = i+1; j < arr.length; j++) {
-                if(arr[j] < arr[i]) {
-                    int temp = arr[j];
-                    arr[j] = arr[i];
-                    arr[i] = temp;
-                }
+            int max = 0, last = arr.length - i - 1;
+            for (int j = 0; j < arr.length-i; j++) {
+                if(arr[j] > arr[max])
+                    max = j;
             }
+            int temp = arr[max];
+            arr[max] = arr[last];
+            arr[last] = temp;
         }
     }
 
     static void selectionSortDescending(int[] arr) {
-        for(int i = 0; i < arr.length-1; i++) {
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[i] < arr[j]) {
-                    int temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
-                }
+        for(int i = 0; i < arr.length; i++) {
+            int min = 0, last = arr.length - i - 1;
+            for (int j = 0; j < arr.length - i; j++) {
+                if(arr[min] > arr[j])
+                    min = j;
             }
+            int temp = arr[min];
+            arr[min] = arr[last];
+            arr[last] = temp;
         }
     }
 }
