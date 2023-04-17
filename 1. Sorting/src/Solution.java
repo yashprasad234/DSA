@@ -2,52 +2,32 @@ import java.util.Arrays;
 
 public class Solution {
     public static void main(String[] args) {
-        int[] arr = {3,6,2,1,8,7,4,5,3,1};
-        countingSortDescending(arr);
-        System.out.println(Arrays.toString(arr));
-        countingSortAscending(arr);
+        int[] arr = {1,4,3,2,5};
+        insertionSortAscending(arr);
         System.out.println(Arrays.toString(arr));
     }
 
-    static void countingSortAscending(int[] arr) {
-        int max = Integer.MIN_VALUE;
-
-        for (int i = 0; i < arr.length; i++) {
-            max = Math.max(arr[i], max);
-        }
-
-        int[] count = new int[max+1];
-        for (int i = 0; i < arr.length; i++) {
-            count[arr[i]]++;
-        }
-
-        int j = 0;
-        for (int i = 0; i < count.length; i++) {
-            while (count[i] > 0) {
-                count[i]--;
-                arr[j++] = i;
+    static void insertionSortAscending(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            int curr = arr[i];
+            int prev = i-1;
+            while (prev >= 0 && arr[prev] > curr) {
+                arr[prev+1] = arr[prev];
+                prev--;
             }
+            arr[prev+1] = curr;
         }
     }
 
-    static void countingSortDescending(int[] arr) {
-        int max = Integer.MIN_VALUE;
-
-        for (int i = 0; i < arr.length; i++) {
-            max = Math.max(arr[i], max);
-        }
-
-        int[] count = new int[max+1];
-        for (int i = 0; i < arr.length; i++) {
-            count[arr[i]]++;
-        }
-
-        int j = 0;
-        for (int i = count.length-1; i >= 0; i--) {
-            while (count[i] > 0) {
-                count[i]--;
-                arr[j++] = i;
+    static void insertionSortDescending(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            int curr = arr[i];
+            int prev = i-1;
+            while(prev >= 0 && arr[prev] < curr) {
+                arr[prev+1] = arr[prev];
+                prev--;
             }
+            arr[prev+1] = curr;
         }
     }
 }
