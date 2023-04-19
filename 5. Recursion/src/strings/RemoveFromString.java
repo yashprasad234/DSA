@@ -1,3 +1,5 @@
+package strings;
+
 public class RemoveFromString {
     public static void main(String[] args) {
         String str = "baccad";

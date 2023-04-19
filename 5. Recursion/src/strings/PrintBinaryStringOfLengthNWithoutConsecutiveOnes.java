@@ -1,3 +1,5 @@
+package strings;
+
 public class PrintBinaryStringOfLengthNWithoutConsecutiveOnes {
     public static void main(String[] args) {
         printBinaryString(3, 0, "");

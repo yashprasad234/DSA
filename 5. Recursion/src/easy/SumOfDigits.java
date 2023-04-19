@@ -1,3 +1,5 @@
+package easy;
+
 public class SumOfDigits {
     public static void main(String[] args) {
         int n = 1234;

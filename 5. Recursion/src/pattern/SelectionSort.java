@@ -1,3 +1,5 @@
+package pattern;
+
 import java.util.Arrays;
 
 public class SelectionSort {

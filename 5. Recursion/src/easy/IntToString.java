@@ -1,3 +1,5 @@
+package easy;
+
 public class IntToString {
     public static void main(String[] args) {
         intToString(2022);

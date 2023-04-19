@@ -1,3 +1,5 @@
+package easy;
+
 public class SumOfFirstN {
     public static void main(String[] args) {
         System.out.println(sumOfN(10));

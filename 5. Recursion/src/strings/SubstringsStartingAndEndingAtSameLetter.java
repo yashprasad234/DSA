@@ -1,4 +1,5 @@
 //https://www.geeksforgeeks.org/recursive-solution-count-substrings-first-last-characters/
+package strings;
 
 public class SubstringsStartingAndEndingAtSameLetter {
     public static void main(String[] args) {

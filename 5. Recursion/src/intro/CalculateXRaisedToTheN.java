@@ -1,3 +1,5 @@
+package intro;
+
 public class CalculateXRaisedToTheN {
     public static void main(String[] args) {
         System.out.println(optimizedPower(2,11));

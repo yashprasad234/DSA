@@ -1,3 +1,5 @@
+package easy;
+
 public class PrintNtoOne {
     public static void main(String[] args) {
         printNto1(5);

@@ -1,4 +1,4 @@
-//https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/
+package easy;//https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/
 
 public class CountSteps {
     public static void main(String[] args) {

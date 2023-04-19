@@ -1,3 +1,5 @@
+package strings;
+
 public class RemoveDuplicates {
     public static void main(String[] args) {
         remDupli("appnnacollege", 0, new StringBuilder(""), new boolean[26]);

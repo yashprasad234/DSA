@@ -1,3 +1,5 @@
+package easy;
+
 public class ProductOfDigits {
     public static void main(String[] args) {
         int n = 1234;

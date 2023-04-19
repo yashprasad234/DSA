@@ -1,3 +1,5 @@
+package easy;
+
 public class PrintOneToN {
     public static void main(String[] args) {
         printOneToN(5);

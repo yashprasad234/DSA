@@ -1,3 +1,5 @@
+package intro;
+
 public class FindStringLength {
     public static void main(String[] args) {
         System.out.println(strLength("yash prasad"));

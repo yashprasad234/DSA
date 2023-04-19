@@ -1,3 +1,5 @@
+package arrays;
+
 import java.util.ArrayList;
 
 public class AllOccurencesLinearSearch {
