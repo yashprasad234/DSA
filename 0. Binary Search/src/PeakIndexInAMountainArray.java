@@ -18,6 +18,7 @@ public class PeakIndexInAMountainArray {
                 end = mid - 1;
         }
 //      at this point both start and end will be at the peak so returning either does the job
+//        return end;
         return st;
     }
 }

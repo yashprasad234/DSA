@@ -6,20 +6,22 @@ public class MissingNumber {
         System.out.println(missingNumber(arr));
     }
 
-    static int missingNumber(int[] nums) {
+    static int missingNumber(int[] arr) {
         int i = 0;
-        while(i < nums.length) {
-            if(nums[i] == i || nums[i] == nums.length) {
+        while(i < arr.length) {
+            int correct = arr[i] - 1;
+            if(arr[i] > 0 && arr[i] < arr.length && arr[i] != arr[correct])
+                swap(arr, i, correct);
+            else
                 i++;
-            } else {
-                swap(nums, i, nums[i]);
+        }
+
+        for (int j = 0; j < arr.length; j++) {
+            if(arr[j] != j+1) {
+                return j+1;
             }
         }
-        for(i = 0; i < nums.length; i++) {
-            if(nums[i] != i)
-                return i;
-        }
-        return nums.length;
+        return arr.length+1;
     }
 
     static void swap(int[] arr, int i, int j) {

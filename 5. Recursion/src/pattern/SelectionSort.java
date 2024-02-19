@@ -10,6 +10,10 @@ public class SelectionSort {
     }
 
     static void sort(int[] arr, int i, int j, int max) {
+        // By starting i from the end of the array we don't need a last index pointer to swap we can simply swap with i
+        // If we decided to put the min element at its correct position (for ascending sorted array) we would need a last
+        // pointer to calculate which position to swap with, so it is easier to do while putting the max element at its
+        // correct position.
         if (i <= 0)
             return;
         if (j <= i) {
